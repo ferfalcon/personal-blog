@@ -20,6 +20,9 @@ def create_app(test_config=None):
 
   @app.route('/')
   def hello():
-    return '<h1>Hi there! II</h1>'
+    return '<h1>Hi there! DB</h1>'
+  
+  from . import db
+  db.init_app(app)
   
   return app
