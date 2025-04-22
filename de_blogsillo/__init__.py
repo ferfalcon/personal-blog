@@ -21,8 +21,11 @@ def create_app(test_config=None):
   @app.route('/')
   def hello():
     return '<h1>Hi there! DB</h1>'
-  
+
   from . import db
   db.init_app(app)
   
+  from . import auth
+  app.register_blueprint(auth.bp)
+
   return app
